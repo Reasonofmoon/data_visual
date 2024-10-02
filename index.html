@@ -3,143 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나폴레옹의 러시아 원정</title>
+    <title>데이터 시각화 갤러리</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #FFFDD0;
             color: #14454d;
             margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            padding: 20px;
         }
         .container {
-            max-width: 1000px;
-            padding: 2rem;
-            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         h1 {
-            font-family: 'Times New Roman', serif;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-        }
-        .image-container {
-            position: relative;
-            background-color: #D2B48C;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.5rem;
-        }
-        .map-image {
-            max-width: 100%;
-            height: auto;
-            transition: transform 0.3s ease-in-out;
-        }
-        .button-container {
-            position: absolute;
-            bottom: 0.5rem;
-            right: 0.5rem;
-            display: flex;
-            gap: 0.5rem;
-        }
-        .button {
-            background-color: #14454d;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #1a5c68;
-        }
-        .button.info {
-            background-color: #FFA500;
-        }
-        .button.info:hover {
-            background-color: #ffb733;
-        }
-        .info-box {
-            background-color: #D2B48C;
-            border: 2px solid #14454d;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            text-align: left;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .info-box h2 {
             color: #14454d;
-            margin-top: 0;
+            text-align: center;
         }
-        .info-box p {
-            color: #333333;
-            margin-bottom: 0.5rem;
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
-        .quote {
-            font-style: italic;
-            max-width: 600px;
-            margin: 1.5rem auto 0;
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #14454d;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>나폴레옹의 러시아 원정</h1>
-        <p class="subtitle">Charles Joseph Minard, 1869</p>
-        
-        <div class="image-container">
-            <img id="map" src="https://cdns.tblsft.com/sites/default/files/pages/1_napolean_minard.png" alt="나폴레옹 진군 맵" class="map-image">
-            <div class="button-container">
-                <button class="button" onclick="zoom(1.1)" aria-label="확대">+</button>
-                <button class="button" onclick="zoom(0.9)" aria-label="축소">-</button>
-                <button class="button info" onclick="toggleInfo()" aria-label="정보">i</button>
-            </div>
-        </div>
-
-        <div id="info-box" class="info-box" style="display: none;">
-            <h2>주요 특징</h2>
-            <p>• 군대의 크기: 베이지색 선(진군), 검은색 선(퇴각)의 너비로 표현</p>
-            <p>• 지리적 위치: 맵 위에 군대의 이동 경로 표시</p>
-            <p>• 시간: 주요 날짜를 경로를 따라 표기</p>
-            <p>• 온도: 퇴각 시 기온 변화를 아래 그래프로 표현</p>
-            <p>• 강 횡단: 특정 지점에서 강을 건널 때 군대 규모 변화 표시</p>
-        </div>
-
-        <p class="quote">
-            "아마도 통계 그래픽의 역사상 최고의 그래픽일 것이다. 놀랍도록 창의적인 방식으로 공간과 시간, 온도의 데이터를 결합하여 보여준다." - Edward Tufte
-        </p>
+        <h1>데이터 시각화 갤러리</h1>
+        <ul>
+            <li><a href="napoleon.html">나폴레옹의 러시아 원정</a></li>
+            <li><a href="#">1854년 런던 콜레라 발병 지도</a></li>
+            <li><a href="#">크림 전쟁 사망률 다이어그램</a></li>
+            <li><a href="#">새로운 역사 차트</a></li>
+            <li><a href="#">대화형 정부 예산 시각화</a></li>
+            <li><a href="#">After Babylon: 언어의 글로벌 시각화</a></li>
+            <li><a href="#">Next America: 미국의 인구통계학적 변화 시각화</a></li>
+            <li><a href="#">영화 대사의 성별 분석 시각화</a></li>
+            <li><a href="#">Selfiecity: 도시 셀카 문화 시각화</a></li>
+            <li><a href="#">다가오는 모든 일식: 시각적 예측</a></li>
+        </ul>
     </div>
-
-    <script>
-        let currentZoom = 1;
-        const map = document.getElementById('map');
-        const infoBox = document.getElementById('info-box');
-
-        function zoom(factor) {
-            currentZoom *= factor;
-            currentZoom = Math.min(Math.max(currentZoom, 1), 2);
-            map.style.transform = `scale(${currentZoom})`;
-        }
-
-        function toggleInfo() {
-            infoBox.style.display = infoBox.style.display === 'none' ? 'block' : 'none';
-        }
-    </script>
 </body>
 </html>
