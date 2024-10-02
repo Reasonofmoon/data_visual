@@ -6,34 +6,55 @@
     <title>데이터 시각화 갤러리</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #FFFDD0;
-            color: #14454d;
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            background-color: #F0F8FF;
+            color: #333;
             margin: 0;
             padding: 20px;
+            line-height: 1.6;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
             background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
         h1 {
-            color: #14454d;
+            color: #2C3E50;
             text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
-        li {
-            margin-bottom: 10px;
+        .gallery-item {
+            background: #F9F9F9;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .gallery-item h2 {
+            font-size: 1.2em;
+            color: #3498DB;
+            margin-top: 0;
+        }
+        .gallery-item p {
+            font-size: 0.9em;
+            color: #666;
         }
         a {
-            color: #14454d;
+            color: #3498DB;
             text-decoration: none;
+            font-weight: bold;
         }
         a:hover {
             text-decoration: underline;
@@ -43,18 +64,48 @@
 <body>
     <div class="container">
         <h1>데이터 시각화 갤러리</h1>
-        <ul>
-            <li><a href="napoleon.html">나폴레옹의 러시아 원정</a></li>
-            <li><a href="#">1854년 런던 콜레라 발병 지도</a></li>
-            <li><a href="#">크림 전쟁 사망률 다이어그램</a></li>
-            <li><a href="#">새로운 역사 차트</a></li>
-            <li><a href="#">대화형 정부 예산 시각화</a></li>
-            <li><a href="#">After Babylon: 언어의 글로벌 시각화</a></li>
-            <li><a href="#">Next America: 미국의 인구통계학적 변화 시각화</a></li>
-            <li><a href="#">영화 대사의 성별 분석 시각화</a></li>
-            <li><a href="#">Selfiecity: 도시 셀카 문화 시각화</a></li>
-            <li><a href="#">다가오는 모든 일식: 시각적 예측</a></li>
-        </ul>
+        <div class="gallery">
+            <div class="gallery-item">
+                <h2><a href="napoleon.html">나폴레옹의 러시아 원정</a></h2>
+                <p>Charles Minard의 유명한 시각화로, 나폴레옹 군대의 진군과 후퇴를 보여줍니다.</p>
+            </div>
+            <div class="gallery-item">
+                <h2><a href="cholera.html">1854년 런던 콜레라 발병 지도</a></h2>
+                <p>John Snow의 혁신적인 지도로, 콜레라 발병의 원인을 밝혀냈습니다.</p>
+            </div>
+            <div class="gallery-item">
+                <h2><a href="crimean_war.html">크림 전쟁 사망률 다이어그램</a></h2>
+                <p>Florence Nightingale의 다이어그램으로, 전쟁 중 사망 원인을 시각화했습니다.</p>
+            </div>
+            <div class="gallery-item">
+                <h2><a href="history_chart.html">새로운 역사 차트</a></h2>
+                <p>Joseph Priestley의 차트로, 역사적 사건을 시간순으로 표현했습니다.</p>
+            </div>
+            <div class="gallery-item">
+                <h2><a href="government_budget.html">대화형 정부 예산 시각화</a></h2>
+                <p>미국 정부 예산을 직관적으로 이해할 수 있게 만든 현대적 시각화입니다.</p>
+            </div>
+            <div class="gallery-item">
+                <h2><a href="after_babylon.html">After Babylon: 언어의 글로벌 시각화</a></h2>
+                <p>전 세계 언어의 분포와 관계를 보여주는 복잡한 데이터 시각화입니다.</p>
+            </div>
+            <div class="gallery-item">
+                <h2><a href="next_america.html">Next America: 인구통계학적 변화 시각화</a></h2>
+                <p>미국의 인구 구조 변화를 동적으로 보여주는 시각화입니다.</p>
+            </div>
+            <div class="gallery-item">
+                <h2><a href="movie_dialogue.html">영화 대사의 성별 분석 시각화</a></h2>
+                <p>영화 속 남녀 대사의 비율을 분석한 흥미로운 데이터 시각화입니다.</p>
+            </div>
+            <div class="gallery-item">
+                <h2><a href="selfiecity.html">Selfiecity: 도시 셀카 문화 시각화</a></h2>
+                <p>세계 여러 도시의 셀카 문화를 비교 분석한 시각화 프로젝트입니다.</p>
+            </div>
+            <div class="gallery-item">
+                <h2><a href="eclipse.html">다가오는 모든 일식: 시각적 예측</a></h2>
+                <p>향후 수십 년간의 일식을 예측하고 시각화한 프로젝트입니다.</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
