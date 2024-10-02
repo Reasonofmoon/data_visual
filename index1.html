@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1854년 런던 콜레라 발병 지도</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F0F8FF; /* 밝은 하늘색 배경 */
+            color: #14454d;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            padding: 2rem;
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #1C4966; /* 짙은 청색 */
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #2E8B57; /* 바다색 */
+        }
+        .image-container {
+            position: relative;
+            background-color: #FFFFFF;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        .map-image {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .button-container {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .button {
+            background-color: #1C4966;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #2E8B57;
+        }
+        .button.info {
+            background-color: #FF6347; /* 토마토색 */
+        }
+        .button.info:hover {
+            background-color: #FF4500;
+        }
+        .info-box {
+            background-color: #E6F3FF;
+            border: 2px solid #1C4966;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .info-box h2 {
+            color: #1C4966;
+            margin-top: 0;
+        }
+        .info-box p {
+            color: #333333;
+            margin-bottom: 0.5rem;
+        }
+        .quote {
+            font-style: italic;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            color: #2E8B57;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>1854년 런던 콜레라 발병 지도</h1>
+        <p class="subtitle">John Snow, 1854</p>
+        
+        <div class="image-container">
+            <img id="map" src="https://cdns.tblsft.com/sites/default/files/pages/2_snow-cholera-map.jpg" alt="1854년 런던 콜레라 발병 지도" class="map-image">
+            <div class="button-container">
+                <button class="button" onclick="zoom(1.1)" aria-label="확대">+</button>
+                <button class="button" onclick="zoom(0.9)" aria-label="축소">-</button>
+                <button class="button info" onclick="toggleInfo()" aria-label="정보">i</button>
+            </div>
+        </div>
+
+        <div id="info-box" class="info-box" style="display: none;">
+            <h2>주요 특징 및 영향</h2>
+            <p>• 지리적 분포: 콜레라 사망자의 위치를 정확히 표시</p>
+            <p>• 점 밀도: 각 점은 한 명의 사망자를 나타냄</p>
+            <p>• 우물 위치: 지역 내 급수 펌프의 위치를 표시</p>
+            <p>• 공간 분석: 사망자 집중 지역과 특정 우물과의 관계를 시각화</p>
+            <p>• 역학적 돌파구: 콜레라가 오염된 물을 통해 전파된다는 것을 증명</p>
+            <p>• 공중 보건의 혁명: 현대 역학 및 GIS(지리정보시스템)의 기초를 마련</p>
+        </div>
+
+        <p class="quote">
+            "존 스노우의 지도는 단순히 데이터를 표현한 것이 아니라, 생명을 구하고 도시 계획의 방향을 바꾼 혁명적인 시각화였다." - 현대 공중 보건학의 관점
+        </p>
+    </div>
+
+    <script>
+        let currentZoom = 1;
+        const map = document.getElementById('map');
+        const infoBox = document.getElementById('info-box');
+
+        function zoom(factor) {
+            currentZoom *= factor;
+            currentZoom = Math.min(Math.max(currentZoom, 1), 2);
+            map.style.transform = `scale(${currentZoom})`;
+        }
+
+        function toggleInfo() {
+            infoBox.style.display = infoBox.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

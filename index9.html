@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다가오는 모든 일식: 시각적 예측</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0A0A0A; /* 매우 어두운 배경 */
+            color: #E0E0E0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            padding: 2rem;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #FFA500; /* 주황색 */
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #4A90E2; /* 밝은 파란색 */
+        }
+        .image-container {
+            position: relative;
+            background-color: #1A1A1A;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        .eclipse-image {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .button-container {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .button {
+            background-color: #FFA500;
+            color: #0A0A0A;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #FFD700;
+        }
+        .button.info {
+            background-color: #4A90E2;
+        }
+        .button.info:hover {
+            background-color: #5AA2FF;
+        }
+        .info-box {
+            background-color: #1A1A1A;
+            border: 2px solid #4A90E2;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .info-box h2 {
+            color: #FFA500;
+            margin-top: 0;
+        }
+        .info-box p {
+            color: #E0E0E0;
+            margin-bottom: 0.5rem;
+        }
+        .quote {
+            font-style: italic;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            color: #4A90E2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>다가오는 모든 일식: 시각적 예측</h1>
+        <p class="subtitle">Washington Post, 2017</p>
+        
+        <div class="image-container">
+            <img id="eclipse" src="https://cdns.tblsft.com/sites/default/files/pages/10_eclipse_wash_po.gif" alt="다가오는 모든 일식 시각화" class="eclipse-image">
+            <div class="button-container">
+                <button class="button" onclick="zoom(1.1)" aria-label="확대">+</button>
+                <button class="button" onclick="zoom(0.9)" aria-label="축소">-</button>
+                <button class="button info" onclick="toggleInfo()" aria-label="정보">i</button>
+            </div>
+        </div>
+
+        <div id="info-box" class="info-box" style="display: none;">
+            <h2>주요 특징 및 의의</h2>
+            <p>• 시간 범위: 2017년부터 2080년까지의 일식 예측</p>
+            <p>• 지리적 표현: 지구 표면에 일식 경로를 정확히 매핑</p>
+            <p>• 동적 시각화: 시간에 따른 일식 경로의 변화를 애니메이션으로 표현</p>
+            <p>• 일식 유형 구분: 개기 일식과 부분 일식의 차이를 시각적으로 표현</p>
+            <p>• 정보의 계층화: 날짜, 지역, 일식 유형 등 다양한 정보를 동시에 전달</p>
+            <p>• 과학의 대중화: 복잡한 천문학적 현상을 일반 대중이 이해하기 쉽게 표현</p>
+            <p>• 장기 예측: 향후 60년 이상의 일식을 미리 시각화하여 장기적 관점 제공</p>
+        </div>
+
+        <p class="quote">
+            "이 시각화는 천문학을 대중의 손에 쥐어준 것과 같습니다. 복잡한 우주의 움직임을 이해하기 쉬운 애니메이션으로 풀어내어, 과학적 예측의 힘과 아름다움을 동시에 보여줍니다." - 천문학 및 데이터 시각화 전문가
+        </p>
+    </div>
+
+    <script>
+        let currentZoom = 1;
+        const eclipse = document.getElementById('eclipse');
+        const infoBox = document.getElementById('info-box');
+
+        function zoom(factor) {
+            currentZoom *= factor;
+            currentZoom = Math.min(Math.max(currentZoom, 1), 2);
+            eclipse.style.transform = `scale(${currentZoom})`;
+        }
+
+        function toggleInfo() {
+            infoBox.style.display = infoBox.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

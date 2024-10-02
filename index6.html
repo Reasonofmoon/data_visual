@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next America: 미국의 인구통계학적 변화 시각화</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F5F5F5; /* 밝은 회색 배경 */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            padding: 2rem;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #2C3E50; /* 짙은 남색 */
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #E67E22; /* 주황색 */
+        }
+        .image-container {
+            position: relative;
+            background-color: #FFFFFF;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        .demographic-image {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .button-container {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #2980B9;
+        }
+        .button.info {
+            background-color: #E67E22;
+        }
+        .button.info:hover {
+            background-color: #D35400;
+        }
+        .info-box {
+            background-color: #ECF0F1;
+            border: 2px solid #3498DB;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .info-box h2 {
+            color: #2C3E50;
+            margin-top: 0;
+        }
+        .info-box p {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .quote {
+            font-style: italic;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            color: #34495E;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Next America: 미국의 인구통계학적 변화 시각화</h1>
+        <p class="subtitle">Pew Research Center</p>
+        
+        <div class="image-container">
+            <img id="demographic" src="https://cdnl.tblsft.com/sites/default/files/pages/7_pew_research_next_america.gif" alt="Next America 인구통계학적 변화 시각화" class="demographic-image">
+            <div class="button-container">
+                <button class="button" onclick="zoom(1.1)" aria-label="확대">+</button>
+                <button class="button" onclick="zoom(0.9)" aria-label="축소">-</button>
+                <button class="button info" onclick="toggleInfo()" aria-label="정보">i</button>
+            </div>
+        </div>
+
+        <div id="info-box" class="info-box" style="display: none;">
+            <h2>주요 특징 및 의의</h2>
+            <p>• 동적 시각화: 시간에 따른 인구 구조의 변화를 동적으로 표현</p>
+            <p>• 세대별 구분: 다양한 연령 그룹의 비율 변화를 색상으로 구분</p>
+            <p>• 장기적 전망: 과거부터 미래까지의 인구 변화 추세를 보여줌</p>
+            <p>• 인종적 다양성: 미국 사회의 인종 구성 변화를 시각화</p>
+            <p>• 사회적 함의: 인구 변화가 미칠 사회경제적 영향을 암시</p>
+            <p>• 정책적 시사점: 미래 정책 결정을 위한 데이터 기반 제공</p>
+            <p>• 교육적 가치: 복잡한 인구통계 데이터를 이해하기 쉽게 표현</p>
+        </div>
+
+        <p class="quote">
+            "Next America 시각화는 단순한 그래프가 아닙니다. 이는 미국 사회의 미래를 보여주는 창이며, 우리가 직면할 도전과 기회를 예측하게 해주는 도구입니다." - 인구통계학 및 사회정책 전문가
+        </p>
+    </div>
+
+    <script>
+        let currentZoom = 1;
+        const demographic = document.getElementById('demographic');
+        const infoBox = document.getElementById('info-box');
+
+        function zoom(factor) {
+            currentZoom *= factor;
+            currentZoom = Math.min(Math.max(currentZoom, 1), 2);
+            demographic.style.transform = `scale(${currentZoom})`;
+        }
+
+        function toggleInfo() {
+            infoBox.style.display = infoBox.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

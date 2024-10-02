@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selfiecity: 도시 셀카 문화 시각화</title>
+    <style>
+        body {
+            font-family: 'Roboto', 'Arial', sans-serif;
+            background-color: #FAFAFA; /* 밝은 회색 배경 */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            padding: 2rem;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #FF4081; /* 밝은 분홍색 */
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #3F51B5; /* 인디고 색상 */
+        }
+        .image-container {
+            position: relative;
+            background-color: #FFFFFF;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        .selfie-image {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .button-container {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .button {
+            background-color: #FF4081;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #E91E63;
+        }
+        .button.info {
+            background-color: #3F51B5;
+        }
+        .button.info:hover {
+            background-color: #303F9F;
+        }
+        .info-box {
+            background-color: #E8EAF6;
+            border: 2px solid #3F51B5;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .info-box h2 {
+            color: #3F51B5;
+            margin-top: 0;
+        }
+        .info-box p {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .quote {
+            font-style: italic;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            color: #FF4081;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Selfiecity: 도시 셀카 문화 시각화</h1>
+        <p class="subtitle">OFFC (Lev Manovich, Moritz Stefaner, 등)</p>
+        
+        <div class="image-container">
+            <img id="selfie" src="https://cdnl.tblsft.com/sites/default/files/pages/9_selfiecity.jpg" alt="Selfiecity 도시 셀카 문화 시각화" class="selfie-image">
+            <div class="button-container">
+                <button class="button" onclick="zoom(1.1)" aria-label="확대">+</button>
+                <button class="button" onclick="zoom(0.9)" aria-label="축소">-</button>
+                <button class="button info" onclick="toggleInfo()" aria-label="정보">i</button>
+            </div>
+        </div>
+
+        <div id="info-box" class="info-box" style="display: none;">
+            <h2>주요 특징 및 의의</h2>
+            <p>• 데이터 범위: 5개 도시에서 수집한 12만 장의 셀카 분석</p>
+            <p>• 다각도 분석: 포즈, 표정, 머리 기울기, 연령, 성별 등 다양한 요소 조사</p>
+            <p>• 도시별 비교: 뉴욕, 모스크바, 베를린, 상파울루, 방콕의 셀카 문화 비교</p>
+            <p>• 인구통계학적 인사이트: 셀카 촬영자의 나이와 성별 분포 시각화</p>
+            <p>• 문화적 차이: 도시별 셀카 스타일의 차이점 강조</p>
+            <p>• 기술과 문화의 교차: 소셜 미디어 시대의 자기표현 방식 분석</p>
+            <p>• 데이터 예술: 통계적 분석과 시각적 표현의 창의적 결합</p>
+        </div>
+
+        <p class="quote">
+            "Selfiecity는 단순한 셀카 분석을 넘어, 현대 도시 문화와 자아 표현의 글로벌 트렌드를 밝혀내는 혁신적인 프로젝트입니다. 이는 빅데이터와 예술이 만나 새로운 문화적 통찰을 제공하는 방식을 보여줍니다." - 디지털 문화 연구자
+        </p>
+    </div>
+
+    <script>
+        let currentZoom = 1;
+        const selfie = document.getElementById('selfie');
+        const infoBox = document.getElementById('info-box');
+
+        function zoom(factor) {
+            currentZoom *= factor;
+            currentZoom = Math.min(Math.max(currentZoom, 1), 2);
+            selfie.style.transform = `scale(${currentZoom})`;
+        }
+
+        function toggleInfo() {
+            infoBox.style.display = infoBox.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

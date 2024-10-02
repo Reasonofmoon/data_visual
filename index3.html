@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새로운 역사 차트</title>
+    <style>
+        body {
+            font-family: 'Cambria', 'Georgia', serif;
+            background-color: #F4F1DE; /* 오래된 양피지 색상 */
+            color: #463F3A;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            padding: 2rem;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #8A817C; /* 고풍스러운 갈색 */
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #E07A5F; /* 테라코타 색상 */
+        }
+        .image-container {
+            position: relative;
+            background-color: #FFFFFF;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        .chart-image {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .button-container {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .button {
+            background-color: #8A817C;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #E07A5F;
+        }
+        .button.info {
+            background-color: #3D405B; /* 짙은 남색 */
+        }
+        .button.info:hover {
+            background-color: #81B29A;
+        }
+        .info-box {
+            background-color: #F2CC8F;
+            border: 2px solid #8A817C;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .info-box h2 {
+            color: #3D405B;
+            margin-top: 0;
+        }
+        .info-box p {
+            color: #463F3A;
+            margin-bottom: 0.5rem;
+        }
+        .quote {
+            font-style: italic;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            color: #E07A5F;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>새로운 역사 차트</h1>
+        <p class="subtitle">Joseph Priestley, 1769</p>
+        
+        <div class="image-container">
+            <img id="chart" src="https://cdnl.tblsft.com/sites/default/files/pages/4_a_new_chart_of_history_color.jpg" alt="새로운 역사 차트" class="chart-image">
+            <div class="button-container">
+                <button class="button" onclick="zoom(1.1)" aria-label="확대">+</button>
+                <button class="button" onclick="zoom(0.9)" aria-label="축소">-</button>
+                <button class="button info" onclick="toggleInfo()" aria-label="정보">i</button>
+            </div>
+        </div>
+
+        <div id="info-box" class="info-box" style="display: none;">
+            <h2>주요 특징 및 영향</h2>
+            <p>• 시간의 시각화: 역사를 선형적이고 연속적인 흐름으로 표현</p>
+            <p>• 동시대성 강조: 여러 문명과 제국의 병렬적 발전을 보여줌</p>
+            <p>• 색상 코딩: 다양한 문명과 제국을 구분하기 위해 색상 사용</p>
+            <p>• 공간적 배치: Y축을 이용해 지리적 위치를 대략적으로 표현</p>
+            <p>• 상대적 중요도: 막대의 너비로 문명의 영향력이나 중요성을 암시</p>
+            <p>• 역사 교육 혁신: 역사를 보다 직관적으로 이해할 수 있게 함</p>
+            <p>• 데이터 시각화 선구: 시간과 공간을 결합한 혁신적 접근</p>
+        </div>
+
+        <p class="quote">
+            "Priestley의 '새로운 역사 차트'는 시간을 보는 우리의 방식을 변화시켰다. 그는 역사를 책 속의 문자에서 눈앞의 그림으로 바꾸어놓았다." - 현대 정보 디자인 전문가
+        </p>
+    </div>
+
+    <script>
+        let currentZoom = 1;
+        const chart = document.getElementById('chart');
+        const infoBox = document.getElementById('info-box');
+
+        function zoom(factor) {
+            currentZoom *= factor;
+            currentZoom = Math.min(Math.max(currentZoom, 1), 2);
+            chart.style.transform = `scale(${currentZoom})`;
+        }
+
+        function toggleInfo() {
+            infoBox.style.display = infoBox.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

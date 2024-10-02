@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After Babylon: 언어의 글로벌 시각화</title>
+    <style>
+        body {
+            font-family: 'Lato', 'Arial', sans-serif;
+            background-color: #1A1A2E; /* 짙은 남색 배경 */
+            color: #E0E0E0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            padding: 2rem;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #4ECCA3; /* 밝은 청록색 */
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #FFA500; /* 주황색 */
+        }
+        .image-container {
+            position: relative;
+            background-color: #16213E;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1.5rem;
+        }
+        .language-image {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .button-container {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .button {
+            background-color: #4ECCA3;
+            color: #1A1A2E;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #FFA500;
+        }
+        .button.info {
+            background-color: #FF6B6B; /* 밝은 산호색 */
+        }
+        .button.info:hover {
+            background-color: #FF8E8E;
+        }
+        .info-box {
+            background-color: #16213E;
+            border: 2px solid #4ECCA3;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .info-box h2 {
+            color: #4ECCA3;
+            margin-top: 0;
+        }
+        .info-box p {
+            color: #E0E0E0;
+            margin-bottom: 0.5rem;
+        }
+        .quote {
+            font-style: italic;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            color: #FFA500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>After Babylon: 언어의 글로벌 시각화</h1>
+        <p class="subtitle">Density Design Lab</p>
+        
+        <div class="image-container">
+            <img id="language" src="https://cdns.tblsft.com/sites/default/files/pages/6_after_babylon.png" alt="After Babylon 언어 시각화" class="language-image">
+            <div class="button-container">
+                <button class="button" onclick="zoom(1.1)" aria-label="확대">+</button>
+                <button class="button" onclick="zoom(0.9)" aria-label="축소">-</button>
+                <button class="button info" onclick="toggleInfo()" aria-label="정보">i</button>
+            </div>
+        </div>
+
+        <div id="info-box" class="info-box" style="display: none;">
+            <h2>주요 특징 및 의의</h2>
+            <p>• 글로벌 언어 맵핑: 2,678개 언어의 기원과 사용 지역을 시각화</p>
+            <p>• 언어 연결성: 어족, 차용어, 언어 간 영향 관계를 표현</p>
+            <p>• 인구 통계: 각 언어 사용자 수를 시각적으로 표현</p>
+            <p>• 지리적 분포: 언어의 공간적 분포와 이동을 보여줌</p>
+            <p>• 상호작용: 사용자가 특정 언어나 지역을 탐색할 수 있는 기능</p>
+            <p>• 문화적 다양성: 언어의 다양성을 통해 문화적 풍요로움을 강조</p>
+            <p>• 학술적 가치: 언어학, 인류학, 역사학 연구에 유용한 도구 제공</p>
+        </div>
+
+        <p class="quote">
+            "After Babylon은 단순한 언어 지도가 아니라, 인류의 문화적 다양성과 연결성을 보여주는 거대한 캔버스다. 이는 우리의 차이점만큼이나 우리를 하나로 묶는 연결고리를 보여준다." - 언어학 및 데이터 시각화 전문가
+        </p>
+    </div>
+
+    <script>
+        let currentZoom = 1;
+        const language = document.getElementById('language');
+        const infoBox = document.getElementById('info-box');
+
+        function zoom(factor) {
+            currentZoom *= factor;
+            currentZoom = Math.min(Math.max(currentZoom, 1), 2);
+            language.style.transform = `scale(${currentZoom})`;
+        }
+
+        function toggleInfo() {
+            infoBox.style.display = infoBox.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
